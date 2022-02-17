@@ -4,6 +4,8 @@ import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import json from "@rollup/plugin-json";
 import postcss from "rollup-plugin-postcss";
+import { terser } from "rollup-plugin-terser";
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const packageJson = require("./package.json");
 
@@ -23,13 +25,14 @@ export default [
       },
     ],
     plugins: [
+      peerDepsExternal(),
       resolve(),
       commonjs(),
       json(), 
       postcss(),
       typescript({ tsconfig: "./tsconfig.json", sourceMap: true, inlineSources: true }),
+      terser(),
     ],
-    external: ['grommet', 'react', 'styled-components', '@hookstate/core', '@iobroker/adapter-react', 'jqwidgets-scripts', 'react-dom']
   },
   {
     input: "dist/esm/types/index.d.ts",
