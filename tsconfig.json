@@ -15,5 +15,6 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
-  }
+  },
+  "exclude": ["node_modules", "**/*.spec.ts", "src--", "src-"]
 }

@@ -2,8 +2,8 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
-import postcss from "rollup-plugin-postcss";
 import json from "@rollup/plugin-json";
+import postcss from "rollup-plugin-postcss";
 
 const packageJson = require("./package.json");
 
@@ -25,15 +25,16 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
-      postcss(),
       json(), 
+      postcss(),
+      typescript({ tsconfig: "./tsconfig.json", sourceMap: true, inlineSources: true }),
     ],
+    external: ['grommet', 'react', 'styled-components', '@hookstate/core', '@iobroker/adapter-react', 'react-device-detect', 'jqwidgets-scripts', 'react-dom']
   },
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
-    external: [/\.css$/],
+    external: [/\.css$/]
   },
 ];
