@@ -10,6 +10,7 @@ export const MetaDataGrid: FC<any> = React.memo(() => {
     const details = useGridComponentDetail();
     const metaDataState = useMetaDataGridComponent();
     const sizeState = useSizeState();
+
     const source: any = {
         dataType: 'json',
         dataFields: [

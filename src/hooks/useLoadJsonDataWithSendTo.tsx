@@ -23,7 +23,7 @@ export const useLoadJsonDataWithSendTo = (
     const refresh = () => {
         loadedData.set(false);
         if (iobTestState.get() === true && testJsonData) {
-            dataState.set(testJsonData);
+            dataState.set(JSON.parse(JSON.stringify(testJsonData)));
             loadedData.set(true);
         } else {
             if (genericAppState.isSocketOK() && genericAppState.getSocket()) {

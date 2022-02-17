@@ -29,7 +29,7 @@ export default [
       postcss(),
       typescript({ tsconfig: "./tsconfig.json", sourceMap: true, inlineSources: true }),
     ],
-    external: ['grommet', 'react', 'styled-components', '@hookstate/core', '@iobroker/adapter-react', 'react-device-detect', 'jqwidgets-scripts', 'react-dom']
+    external: ['grommet', 'react', 'styled-components', '@hookstate/core', '@iobroker/adapter-react', 'jqwidgets-scripts', 'react-dom']
   },
   {
     input: "dist/esm/types/index.d.ts",
