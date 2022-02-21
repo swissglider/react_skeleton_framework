@@ -1,10 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useEffect } from 'react';
 import { Box } from 'grommet';
-import { MessageBoxList } from '../molecules/skeletonMessageBoxList';
-import { useComponentFrameState, ContentFrame } from '../molecules/contentFrame';
-import { useMessages } from '../states/messageStates';
-import { T_AppComponentStructure } from '../types/frameworkTypes';
+import { MessageBoxList } from '../3-molecules/skeletonMessageBoxList';
+import { ContentFrame } from '../3-molecules/ContentFrameComponent/ContentFrame';
+import { useComponentFrameState } from '../3-molecules/ContentFrameComponent/componentStates';
+import { useMessages } from '../10-addons/states/messageStates';
+import { T_AppComponentStructure } from '../10-addons/types/frameworkTypes';
 
 const ShowMSGComponent: FC<any> = () => {
     const messageState = useMessages();

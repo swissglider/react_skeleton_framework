@@ -1,8 +1,8 @@
 // ************************************************************************************************************
 // Apps
 // ************************************************************************************************************
-import { IOBApp as IOBApp_ } from './APP/IOBApp';
-import { Skeleton as Skeleton_ } from './organisms/skeleton';
+import { IOBApp as IOBApp_ } from './5-pages/IOBApp';
+import { Skeleton as Skeleton_ } from './5-pages/skeleton';
 
 // ************************************************************************************************************
 // Components
@@ -18,22 +18,22 @@ import { InfoStateComponentStructure as InfoStateComponentStructure_ } from './c
 import {
     useAppStructure as useAppStructure_,
     useSelectedComponent as useSelectedComponent_,
-} from './states/appStructureStates';
-import { useComponentHistory as useComponentHistory_ } from './states/historyStates';
-import { useMessages as useMessages_ } from './states/messageStates';
-import { useTitleState as useTitleState_ } from './states/titleStates';
-import { useSizeState as useSizeState_ } from './states/windowStates';
+} from './10-addons/states/appStructureStates';
+import { useComponentHistory as useComponentHistory_ } from './10-addons/states/historyStates';
+import { useMessages as useMessages_ } from './10-addons/states/messageStates';
+import { useTitleState as useTitleState_ } from './10-addons/states/titleStates';
+import { useSizeState as useSizeState_ } from './10-addons/states/windowStates';
 import {
     useIOBAppTest as useIOBAppTest_,
     useIOBGenericApp as useIOBGenericApp_,
     useIOBGenericAppFull as useIOBGenericAppFull_,
     useIOBLegacyAdapter as useIOBLegacyAdapter_,
-} from './states/iobAppStates';
+} from './10-addons/states/iobAppStates';
 
 // ************************************************************************************************************
 // Hooks
 // ************************************************************************************************************
-import { useLoadJsonDataWithSendTo as useLoadJsonDataWithSendTo_ } from './hooks/useLoadJsonDataWithSendTo';
+import { useLoadJsonDataWithSendTo as useLoadJsonDataWithSendTo_ } from './10-addons/hooks/useLoadJsonDataWithSendTo';
 
 // ************************************************************************************************************
 // Types
@@ -45,12 +45,12 @@ import {
     T_AppStructure as T_AppStructure_,
     T_AppSeverity as T_AppSeverity_,
     T_AppMessage as T_AppMessage_,
-} from './types/frameworkTypes';
+} from './10-addons/types/frameworkTypes';
 
 // ************************************************************************************************************
 // Helper
 // ************************************************************************************************************
-import { SocketHelper as SocketHelper_ } from './helper/socketHelper';
+import { SocketHelper as SocketHelper_ } from './10-addons/helper/socketHelper';
 
 // ************************************************************************************************************
 // Component Parts
@@ -58,10 +58,10 @@ import { SocketHelper as SocketHelper_ } from './helper/socketHelper';
 import {
     ContentFrame as ContentFrame_,
     useComponentFrameState as useComponentFrameState_,
-} from './molecules/contentFrame';
-import { ContentFrameSimple as ContentFrameSimple_ } from './molecules/contentFrameSimple';
-import { SkeletonLoader as SkeletonLoader_ } from './atoms/skeletonLoader';
-import { MessageBox as MessageBox_ } from './atoms/skeletonMessageBox';
+} from './3-molecules/ContentFrameComponent';
+import { ContentFrameSimple as ContentFrameSimple_ } from './3-molecules/contentFrameSimple';
+import { SkeletonLoader as SkeletonLoader_ } from './1-atoms/SkeletonLoader/SkeletonLoader';
+import { MessageBox as MessageBox_ } from './3-molecules/SkeletonMessageBox/SkeletonMessageBox';
 
 // ************************************************************************************************************
 // final namespace

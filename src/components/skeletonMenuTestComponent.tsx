@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { Box, Button } from 'grommet';
 import { Test, Compare } from 'grommet-icons';
-import { T_AppComponentStructure } from '../types/frameworkTypes';
-import { ContentFrameSimple } from '../molecules/contentFrameSimple';
-import { useMessages } from '../states/messageStates';
-import { useAppStructure, useSelectedComponent } from '../states/appStructureStates';
+import { T_AppComponentStructure } from '../10-addons/types/frameworkTypes';
+import { ContentFrameSimple } from '../3-molecules/contentFrameSimple';
+import { useMessages } from '../10-addons/states/messageStates';
+import { useAppStructure, useSelectedComponent } from '../10-addons/states/appStructureStates';
 
 const MenuTestComponent: FC<any> = () => {
     const selectedCompState = useSelectedComponent();

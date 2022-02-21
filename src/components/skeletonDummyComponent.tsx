@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { T_AppComponentStructure } from '../types/frameworkTypes';
+import { T_AppComponentStructure } from '../10-addons/types/frameworkTypes';
 
 const DummyComponent: FC<any> = () => {
     return <div>No default set</div>;

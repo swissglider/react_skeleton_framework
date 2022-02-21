@@ -1,15 +1,14 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useEffect } from 'react';
 import { Box } from 'grommet';
 import { DetailBox } from './detailView';
 import { MetaDataGrid } from './metaDataGrid';
 import { DocumentStore, Menu } from 'grommet-icons';
 import { useGridComponentDetail, useMetaDataGridComponent } from './componentStates';
-import { SkeletonLoader } from '../../atoms/skeletonLoader';
-import { useLoadJsonDataWithSendTo } from '../../hooks/useLoadJsonDataWithSendTo';
-import { useComponentFrameState, ContentFrame } from '../../molecules/contentFrame';
-import { useIOBLegacyAdapter } from '../../states/iobAppStates';
-import { useSizeState } from '../../states/windowStates';
+import { SkeletonLoader } from '../../1-atoms/SkeletonLoader/SkeletonLoader';
+import { useLoadJsonDataWithSendTo } from '../../10-addons/hooks/useLoadJsonDataWithSendTo';
+import { useComponentFrameState, ContentFrame } from '../../3-molecules/ContentFrameComponent';
+import { useIOBLegacyAdapter } from '../../10-addons/states/iobAppStates';
+import { useSizeState } from '../../10-addons/states/windowStates';
 
 const MetaDataGridComponentOrg: FC<any> = () => {
     const sizeState = useSizeState();
@@ -49,10 +48,12 @@ const MetaDataGridComponentOrg: FC<any> = () => {
 };
 
 export type T_MetaDataGridComponent_Props = {
-    testJsonData:any;
-}
+    testJsonData: any;
+};
 
-export const MetaDataGridComponent: FC<T_MetaDataGridComponent_Props> = ({testJsonData} : T_MetaDataGridComponent_Props) => {
+export const MetaDataGridComponent: FC<T_MetaDataGridComponent_Props> = ({
+    testJsonData,
+}: T_MetaDataGridComponent_Props) => {
     const legacyAdapterState = useIOBLegacyAdapter();
 
     const [loadedData] = useLoadJsonDataWithSendTo(

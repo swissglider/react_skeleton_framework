@@ -1,7 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useEffect } from 'react';
 import { Box, Button, CheckBox } from 'grommet';
-import { ContentFrame, useComponentFrameState } from '../../molecules/contentFrame';
+import { ContentFrame, useComponentFrameState } from '../../3-molecules/ContentFrameComponent';
 
 export interface I_TestComponent_Props {
     name: string;

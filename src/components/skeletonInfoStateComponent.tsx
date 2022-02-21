@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { Box, Text } from 'grommet';
-import { S_landscapeState, S_totalHeightState, S_totalWidthState } from '../states/frameworkStates';
+import { S_landscapeState, S_totalHeightState, S_totalWidthState } from '../10-addons/states/frameworkStates';
 import { useState } from '@hookstate/core';
 import { StatusInfo } from 'grommet-icons';
-import { useSizeState } from '../states/windowStates';
-import { useTitleState } from '../states/titleStates';
-import { ContentFrameSimple } from '../molecules/contentFrameSimple';
-import { T_AppComponentStructure } from '../types/frameworkTypes';
+import { useSizeState } from '../10-addons/states/windowStates';
+import { useTitleState } from '../10-addons/states/titleStates';
+import { ContentFrameSimple } from '../3-molecules/contentFrameSimple';
+import { T_AppComponentStructure } from '../10-addons/types/frameworkTypes';
 
 const InfoStateComponent: FC<any> = () => {
     const totalWidthState = useState(S_totalWidthState);

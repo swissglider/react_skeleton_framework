@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
-    "target": "es2016",
+    "target": "es5",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -16,5 +16,5 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
   },
-  "exclude": ["node_modules", "**/*.spec.ts", "src--", "src-"]
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts", "**/*.story.ts", "**/*.spec.tsx", "**/*.test.tsx", "**/*.story.tsx"]
 }

@@ -4,7 +4,7 @@ import 'jqwidgets-scripts/jqwidgets/styles/jqx.base.css';
 import 'jqwidgets-scripts/jqwidgets/styles/jqx.metrodark.css';
 import { useGridComponentDetail, useMetaDataGridComponent } from './componentStates';
 import { Downgraded } from '@hookstate/core';
-import { useSizeState } from '../../states/windowStates';
+import { useSizeState } from '../../10-addons/states/windowStates';
 
 export const MetaDataGrid: FC<any> = React.memo(() => {
     const details = useGridComponentDetail();
