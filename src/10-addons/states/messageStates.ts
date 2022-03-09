@@ -1,4 +1,4 @@
-import { createState, State, useState } from '@hookstate/core';
+import { createState, none, State, useState } from '@hookstate/core';
 import { T_AppMessage, T_AppSeverity } from '../types/frameworkTypes';
 
 // ************************************************************************************************************
@@ -85,8 +85,13 @@ const wrapS_appAppMessage = (state: State<T_AppMessage[]>) => ({
             state[index].set(newValue);
         }
     },
+    isMsgNew: (msgTime: number) => state.value.find((e) => e.time === msgTime),
     getLast: () => state[state.length - 1].get(),
     getNewCount: () => state.value.filter((e) => e.new === true).length,
     getReadedCount: () => state.value.filter((e) => e.new === false).length,
+    deleteMsg: (time: number) => {
+        state[state.value.findIndex((e) => e.time === time)].set(none);
+    },
+    deleteAll: () => state.set([]),
 });
 export const useMessages = () => wrapS_appAppMessage(useState(S_appMessages));

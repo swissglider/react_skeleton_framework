@@ -1,3 +1,6 @@
+const appType: string[] = ['prod', 'test'];
+export type T_AppType = typeof appType[number];
+
 const sizeValues: string[] = ['small', 'medium', 'large'];
 export type T_Size = typeof sizeValues[number];
 
@@ -6,7 +9,7 @@ export type T_AppVariant = typeof appVariantValues[number];
 
 export type T_AppComponentStructure = {
     menuName: string;
-    component?: React.FunctionComponent;
+    Component?: React.FunctionComponent;
     parameters?: Record<string, any>;
     mainMenu?: boolean; // standard true
     moreMenu?: boolean; // standard false

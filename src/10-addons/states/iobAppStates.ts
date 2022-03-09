@@ -1,6 +1,7 @@
 import { createState, State, useState } from '@hookstate/core';
 import Connection from '@iobroker/adapter-react/Connection';
 
+// this is the Instance Number of the legacy Adapter i.e. mihome (not thehome_generator_mihome)
 type T_IOBLegacyAdapter = {
     instance: number;
 };
@@ -33,6 +34,3 @@ const wrapS_iobGenericApp = (state: State<T_IOBStateType>) => ({
 });
 export const useIOBGenericApp = () => wrapS_iobGenericApp(useState(S_iobGenericApp));
 export const useIOBGenericAppFull = () => useState(S_iobGenericApp);
-
-const S_iobAppTest = createState<boolean>(true);
-export const useIOBAppTest = () => useState(S_iobAppTest);

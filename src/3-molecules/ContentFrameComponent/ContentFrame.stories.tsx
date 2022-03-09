@@ -18,7 +18,7 @@ const TITLE_ICON: Record<string, Icon | undefined> = {
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Internal/organisms/ContentFrame',
+    title: 'Internal/molecules/ContentFrame',
     component: ContentFrame,
     argTypes: {
         scope: {

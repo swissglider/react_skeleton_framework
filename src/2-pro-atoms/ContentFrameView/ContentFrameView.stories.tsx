@@ -6,7 +6,7 @@ import { Home } from 'grommet-icons';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Internal/molecules/ContentFrameView',
+    title: 'Internal/pro-atoms/ContentFrameView',
     component: ContentFrameView,
     argTypes: {
         toggleCollapsed: { table: { disable: true } },

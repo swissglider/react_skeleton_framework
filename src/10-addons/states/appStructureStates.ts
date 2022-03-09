@@ -1,6 +1,6 @@
 import { createState, none, State, useState } from '@hookstate/core';
-import { DummyComponentStructure } from '../../components/skeletonDummyComponent';
-import { ShowMSGComponentStructure } from '../../components/skeletonShowMSGComponent';
+import { DummyComponentStructure } from '../../6-components/DummyComponent/DummyComponent';
+import { ShowMSGComponentStructure } from '../../4-organisms/ShowMSGComponent/ShowMSGComponent';
 import { T_AppComponentStructure, T_AppStructure } from '../types/frameworkTypes';
 import { S_appComponentHistory, S_appCurrentShownComponentHistoryID } from './historyStates';
 

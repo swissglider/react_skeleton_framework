@@ -18,8 +18,8 @@ Combines Atoms/Pro-Atoms with global states
 - Do not include other Molecules
 
 ## Organisms
-Like Molecules but:
-- includes other Molecules
+Cobines Atoms / Pro-Atoms / Molecules
+- Do not build any designe elements except i.e Box..
 
 
 ## Pages
