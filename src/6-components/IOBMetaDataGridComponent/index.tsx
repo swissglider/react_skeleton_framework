@@ -25,6 +25,7 @@ const MetaDataGridComponentOrg: FC<any> = () => {
         frameState.setTitleIcon(scope, frame1, DocumentStore);
         frameState.setTitleIcon(scope, frame2, Menu);
         frameState.setClosed(scope, frame2, true);
+        frameState.setBoxProps(scope, frame1, { flex: true });
     }, []);
 
     useEffect(() => {
@@ -41,7 +42,7 @@ const MetaDataGridComponentOrg: FC<any> = () => {
             <ContentFrame scope={scope} id={frame2}>
                 <DetailBox />
             </ContentFrame>
-            <ContentFrame scope={scope} id={frame1} flex={true}>
+            <ContentFrame scope={scope} id={frame1}>
                 <MetaDataGrid />
             </ContentFrame>
         </Box>

@@ -2,7 +2,6 @@ import { createState, useState } from '@hookstate/core';
 import { BoxExtendedProps } from 'grommet';
 import { Icon } from 'grommet-icons';
 import { BackgroundType, ColorType } from 'grommet/utils';
-import { FC } from 'react';
 import { T_AppAdditionalActions } from '../../10-addons/types/frameworkTypes';
 
 // SFSC = SkeletonFrameStructConfigurations
