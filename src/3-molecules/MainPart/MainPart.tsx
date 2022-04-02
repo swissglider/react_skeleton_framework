@@ -1,40 +1,46 @@
-import React, { createElement } from 'react';
-import { S_landscapeState, useVariantState } from '../../10-addons/states/frameworkStates';
-import { useState } from '@hookstate/core';
-import Menu from '../Menu/Menu';
+import React, { createElement, useEffect } from 'react';
+import { useVariantState } from '../../10-addons/states/frameworkStates';
+import MainMenu from '../Menu/Menu';
 import { useSelectedComponent } from '../../10-addons/states/appStructureStates';
 import MainView from '../../2-pro-atoms/MainView/MainView';
 import IFrameComp from '../../1-atoms/IFrameComp/IFrameComp';
+import { DummyComponentStructure } from '../../6-components/DummyComponent/DummyComponent';
+import { useWindowSize } from '../../10-addons/hooks/useWindowSize';
 
 const MainPart = (): JSX.Element => {
-    const landscapeState = useState(S_landscapeState);
     const variantState = useVariantState();
     const selectedComponentState = useSelectedComponent();
+    const [Comp, setComp] = React.useState<React.ReactElement<any> | undefined>(undefined);
+    const [IFrameComp_, setIFrameComp] = React.useState<React.ReactElement<any> | undefined>(undefined);
+    const { isLandscape } = useWindowSize();
 
-    const IFramComp =
-        selectedComponentState.getComponent().isEmbedded && selectedComponentState.getComponent().embeddedLink ? (
-            <IFrameComp src={selectedComponentState.getComponent().embeddedLink as string} />
-        ) : undefined;
-
-    const Comp = selectedComponentState.getComponent().Component
-        ? createElement(
-              selectedComponentState.getComponent().Component as React.FunctionComponent<any>,
-              selectedComponentState.getComponent().parameters,
-          )
-        : undefined;
-
-    const MenuComp = <Menu mainMenu={false} />;
-
-    const NoComp = <div>No Component set</div>;
+    useEffect(() => {
+        setComp(
+            selectedComponentState.getComponent().Component
+                ? createElement(
+                      selectedComponentState.getComponent().Component as React.FunctionComponent<any>,
+                      selectedComponentState.getComponent().parameters,
+                  )
+                : undefined,
+        );
+        setIFrameComp(
+            selectedComponentState.getComponent().isEmbedded && selectedComponentState.getComponent().embeddedLink ? (
+                <IFrameComp
+                    src={selectedComponentState.getComponent().embeddedLink as string}
+                    name={selectedComponentState.getMenuName()}
+                />
+            ) : undefined,
+        );
+    }, [selectedComponentState.getComponent().Component]);
 
     return (
         <MainView
-            isLandscape={landscapeState.get()}
+            isLandscape={isLandscape}
             embedded={variantState.get() === 'embedded'}
             Comp={Comp}
-            IFramComp={IFramComp}
-            MenuComp={MenuComp}
-            NoComp={NoComp}
+            IFramComp={IFrameComp_}
+            MenuComp={<MainMenu mainMenu={false} />}
+            NoComp={DummyComponentStructure.Component ? <DummyComponentStructure.Component /> : <div>Error</div>}
         />
     );
 };

@@ -271,18 +271,14 @@ const App = ():JSX.Elemement => {
     return (
         <Box flex={true}>
             <Skeleton.Parts.ContentFrame
-                margin={{ top: 'small' }}
                 id="listView"
                 scope={ID}
-                flex={true}
             >
                 <div>I'm a child Content</div>
             </Skeleton.Parts.ContentFrame>
             <Skeleton.Parts.ContentFrame
-                margin={{ top: 'small' }}
                 id="listView"
                 scope={ID2}
-                flex={true}
             >
                 <div>I'm a child Content</div>
             </Skeleton.Parts.ContentFrame>

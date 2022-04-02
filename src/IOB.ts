@@ -6,7 +6,7 @@ import {
     useIOBGenericAppFull as useIOBGenericAppFull_,
     useIOBLegacyAdapter as useIOBLegacyAdapter_,
 } from './10-addons/states/iobAppStates';
-import { IOBApp as IOBApp_ } from './5-pages/IOBApp';
+import { IOBApp as IOBApp_ } from './5-pages/IOBApp/IOBApp';
 import { IOBMetaDataGridComponent as IOBMetaDataGridComponent_ } from './6-components/IOBMetaDataGridComponent';
 
 export namespace IOBApp {

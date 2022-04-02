@@ -18,10 +18,10 @@ import {
 } from './10-addons/states/appStructureStates';
 import { useComponentHistory as useComponentHistory_ } from './10-addons/states/historyStates';
 import { useMessages as useMessages_ } from './10-addons/states/messageStates';
-import { useTitleState as useTitleState_ } from './10-addons/states/titleStates';
-import { useSizeState as useSizeState_ } from './10-addons/states/windowStates';
+import { useAppTitle as useAppTitle_ } from './10-addons/states/titleStates';
 import { useAppType as useAppType_ } from './10-addons/states/frameworkStates';
 import { useComponentFrameState as useComponentFrameState_ } from './3-molecules/ContentFrameComponent/componentStates';
+import { useGrommetTheme as useGrommetTheme_ } from './10-addons/states/grommetThemeState';
 
 // ************************************************************************************************************
 // Types
@@ -38,7 +38,6 @@ import {
 // ************************************************************************************************************
 // Component Parts
 // ************************************************************************************************************
-import { ContentFrameSimple as ContentFrameSimple_ } from './2-pro-atoms/ContentFrameSimple/contentFrameSimple';
 import { SkeletonLoader as SkeletonLoader_ } from './1-atoms/SkeletonLoader/SkeletonLoader';
 import { MessageBox as MessageBox_ } from './3-molecules/SkeletonMessageBox/SkeletonMessageBox';
 import { ContentFrame as ContentFrame_ } from './3-molecules/ContentFrameComponent/ContentFrame';
@@ -53,12 +52,12 @@ export namespace Skeleton {
     }
     export namespace Hooks {
         export const useAppStructure = useAppStructure_;
-        export const useSelectedComponent = useSelectedComponent_;
-        export const useComponentHistory = useComponentHistory_;
-        export const useMessages = useMessages_;
-        export const useTitleState = useTitleState_;
-        export const useSizeState = useSizeState_;
+        export const useAppTitle = useAppTitle_;
         export const useAppType = useAppType_;
+        export const useComponentHistory = useComponentHistory_;
+        export const useSelectedComponent = useSelectedComponent_;
+        export const useGrommetTheme = useGrommetTheme_;
+        export const useMessages = useMessages_;
         export const useComponentFrameState = useComponentFrameState_;
     }
     export namespace Types {
@@ -71,7 +70,6 @@ export namespace Skeleton {
     }
     export namespace Parts {
         export const ContentFrame = ContentFrame_;
-        export const ContentFrameSimple = ContentFrameSimple_;
         export const SkeletonLoader = SkeletonLoader_;
         export const MessageBox = MessageBox_;
     }

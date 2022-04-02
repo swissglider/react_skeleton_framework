@@ -3,9 +3,9 @@ import GenericApp from '@iobroker/adapter-react/GenericApp';
 import { GenericAppProps, GenericAppSettings } from '@iobroker/adapter-react/types';
 import Loader from '@iobroker/adapter-react/Components/Loader';
 import { useState } from '@hookstate/core';
-import { useIOBGenericAppFull, useIOBLegacyAdapter } from '../10-addons/states/iobAppStates';
-import { Skeleton } from './Skeleton/Skeleton';
-import { useAppType } from '../10-addons/states/frameworkStates';
+import { useIOBGenericAppFull, useIOBLegacyAdapter } from '../../10-addons/states/iobAppStates';
+import { Skeleton } from '../Skeleton/Skeleton';
+import { useAppType } from '../../10-addons/states/frameworkStates';
 
 const IOBStack = ({ genericApp }: { genericApp: GenericApp }): JSX.Element => {
     const genericAppState = useIOBGenericAppFull();

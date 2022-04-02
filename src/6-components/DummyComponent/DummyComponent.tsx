@@ -6,8 +6,6 @@ const DummyComponent: FC<any> = () => {
 };
 
 export const DummyComponentStructure: T_AppComponentStructure = {
-    menuName: 'No Default set of Component not configured',
+    menuName: 'No Default set or Component not configured',
     Component: DummyComponent,
-    parameters: {},
-    default: true,
 };

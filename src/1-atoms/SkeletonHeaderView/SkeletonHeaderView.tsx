@@ -5,7 +5,9 @@ import { Notification, Next, Previous } from 'grommet-icons';
 export type T_SkeletonHeaderView_Props = {
     title: string;
     back: () => void;
+    hasBack: () => boolean;
     forward: () => void;
+    hasForward: () => boolean;
     showMsg: () => void;
     msgCount?: number;
 };
@@ -13,7 +15,9 @@ export type T_SkeletonHeaderView_Props = {
 const SkeletonHeaderView: FC<T_SkeletonHeaderView_Props> = ({
     title,
     back,
+    hasBack,
     forward,
+    hasForward,
     showMsg,
     msgCount = 0,
 }: T_SkeletonHeaderView_Props): JSX.Element => {
@@ -23,8 +27,22 @@ const SkeletonHeaderView: FC<T_SkeletonHeaderView_Props> = ({
                 {title}
             </Heading>
             <Box direction="row">
-                <Button aria-label="back" plain size="small" icon={<Previous />} onClick={() => back()} />
-                <Button aria-label="forward" plain size="small" icon={<Next />} onClick={() => forward()} />
+                <Button
+                    disabled={!hasBack()}
+                    aria-label="back"
+                    plain
+                    size="small"
+                    icon={<Previous />}
+                    onClick={() => back()}
+                />
+                <Button
+                    disabled={!hasForward()}
+                    aria-label="forward"
+                    plain
+                    size="small"
+                    icon={<Next />}
+                    onClick={() => forward()}
+                />
                 <Button
                     aria-label="showMsg"
                     size="small"

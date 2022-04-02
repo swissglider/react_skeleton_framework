@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { Box } from 'grommet';
+import { View, Trash } from 'grommet-icons';
 import { MessageBoxList } from '../../3-molecules/MessageBoxList/MessageBoxList';
 import { ContentFrame } from '../../3-molecules/ContentFrameComponent/ContentFrame';
 import { useComponentFrameState } from '../../3-molecules/ContentFrameComponent/componentStates';
@@ -12,23 +13,41 @@ const ShowMSGComponent: FC<any> = () => {
     const scope = 'ShowMSGComponent';
 
     useEffect(() => {
-        sfcState.setScopeCollapsible(scope, true);
         sfcState.setTitle(scope, 'ShowMSGComponent_new_messages', `${messageState.getNewCount()} New Messages`);
         sfcState.setTitle(
             scope,
             'ShowMSGComponent_readed_messages',
             `${messageState.getReadedCount()} Readed Messages`,
         );
-        sfcState.setScopeCollapsible(scope, true);
-        sfcState.setCollapsed(scope, 'ShowMSGComponent_new_messages', false);
-        sfcState.setCollapsed(scope, 'ShowMSGComponent_readed_messages', true);
         sfcState.setShowBody(scope, 'ShowMSGComponent_new_messages', messageState.getNewCount() === 0 ? false : true);
         sfcState.setShowBody(
             scope,
             'ShowMSGComponent_readed_messages',
             messageState.getReadedCount() === 0 ? false : true,
         );
+
+        // to set all as Read
+        sfcState.setAdditionalActions(scope, 'ShowMSGComponent_new_messages', [
+            {
+                Icon: View,
+                onClick: () => messageState.setAllReaded(),
+            },
+        ]);
+
+        // to delete all readed
+        sfcState.setAdditionalActions(scope, 'ShowMSGComponent_readed_messages', [
+            {
+                Icon: Trash,
+                onClick: () => messageState.deleteAllReaded(),
+            },
+        ]);
     }, [messageState.getReadedCount(), messageState.getNewCount()]);
+
+    useEffect(() => {
+        sfcState.setScopeCollapsible(scope, true);
+        sfcState.setCollapsed(scope, 'ShowMSGComponent_new_messages', false);
+        sfcState.setCollapsed(scope, 'ShowMSGComponent_readed_messages', true);
+    }, []);
 
     return (
         <Box gap="large">
@@ -45,8 +64,4 @@ const ShowMSGComponent: FC<any> = () => {
 export const ShowMSGComponentStructure: T_AppComponentStructure = {
     menuName: 'ShowMSG',
     Component: ShowMSGComponent,
-    parameters: {},
-    default: true,
-    moreMenu: false,
-    mainMenu: false,
 };

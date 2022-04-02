@@ -1,15 +1,27 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Box, Button } from 'grommet';
 import { Test, Compare } from 'grommet-icons';
 import { T_AppComponentStructure } from '../../10-addons/types/frameworkTypes';
-import { ContentFrameSimple } from '../../2-pro-atoms/ContentFrameSimple/contentFrameSimple';
 import { useMessages } from '../../10-addons/states/messageStates';
 import { useAppStructure, useSelectedComponent } from '../../10-addons/states/appStructureStates';
+import { useComponentFrameState } from '../../3-molecules/ContentFrameComponent/componentStates';
+import ContentFrame from '../../3-molecules/ContentFrameComponent/ContentFrame';
 
 const TestMenuComponent: FC<any> = () => {
     const selectedCompState = useSelectedComponent();
     const asState = useAppStructure();
     const messageState = useMessages();
+    const scope = 'scope';
+    const sfcState = useComponentFrameState();
+    const id1 = 'id1';
+    const id2 = 'id2';
+    const id3 = 'id3';
+
+    useEffect(() => {
+        sfcState.setTitle(scope, id1, `Menu Tests`);
+        sfcState.setTitle(scope, id2, `Toast Tests`);
+        sfcState.setTitle(scope, id3, `IFrame Tests`);
+    }, []);
 
     const NewSC: T_AppComponentStructure = {
         menuName: 'New',
@@ -19,8 +31,8 @@ const TestMenuComponent: FC<any> = () => {
         menuIcon: Compare,
     };
 
-    const setDefault = (t: string) => {
-        selectedCompState.set(t);
+    const selectComponent = (t: string) => {
+        selectedCompState.setSelectedComponent(t);
     };
 
     const addMenu = () => {
@@ -38,32 +50,33 @@ const TestMenuComponent: FC<any> = () => {
             moreMenu: false,
             mainMenu: false,
             isEmbedded: true,
-            embeddedLink: '/?appVariant=embedded',
+            embeddedLink:
+                '/iframe.html?appVariant=embedded&id=external-app-skeleton--standard&globals=backgrounds.grid:false&viewMode=story',
         });
-        selectedCompState.set('iFrameTest');
+        selectedCompState.setSelectedComponent('iFrameTest');
     };
 
     return (
         <Box gap="small">
-            <ContentFrameSimple title="Menu Tests">
+            <ContentFrame id={id1} scope={scope}>
                 <Box direction="row" gap="small" wrap>
                     <Button size="small" label="Add Menu" onClick={() => addMenu()} margin={{ bottom: 'xsmall' }} />
                     <Button size="small" label="Delete Menu" onClick={() => delMenu()} margin={{ bottom: 'xsmall' }} />
                     <Button
                         size="small"
-                        label="Set Default - Info"
-                        onClick={() => setDefault('AppInfo')}
+                        label="Select - Info Component"
+                        onClick={() => selectComponent('AppInfo')}
                         margin={{ bottom: 'xsmall' }}
                     />
                     <Button
                         size="small"
-                        label="Set Default Wrong"
-                        onClick={() => setDefault('halloVelo')}
+                        label="Select - Not Available Component"
+                        onClick={() => selectComponent('halloVelo')}
                         margin={{ bottom: 'xsmall' }}
                     />
                 </Box>
-            </ContentFrameSimple>
-            <ContentFrameSimple title="Toast Tests">
+            </ContentFrame>
+            <ContentFrame id={id2} scope={scope}>
                 <Box direction="row" gap="small" wrap>
                     <Button
                         size="small"
@@ -90,15 +103,15 @@ const TestMenuComponent: FC<any> = () => {
                         margin={{ bottom: 'xsmall' }}
                     />
                 </Box>
-            </ContentFrameSimple>
-            <ContentFrameSimple title="IFrame Tests">
+            </ContentFrame>
+            <ContentFrame id={id3} scope={scope}>
                 <Button
                     size="small"
                     label="Open IFrame Comp"
                     onClick={() => setIFrameTest()}
                     margin={{ bottom: 'xsmall' }}
                 />
-            </ContentFrameSimple>
+            </ContentFrame>
         </Box>
     );
 };
@@ -107,6 +120,5 @@ export const TestMenuComponentStructure: T_AppComponentStructure = {
     menuName: 'MenuTest',
     Component: TestMenuComponent,
     parameters: {},
-    default: true,
     menuIcon: Test,
 };

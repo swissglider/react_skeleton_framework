@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Box, Header, Main, Text } from 'grommet';
-import { Checkmark, FormClose } from 'grommet-icons';
+import { View, Trash } from 'grommet-icons';
 import { T_AppMessage, T_AppSeverity } from '../../10-addons/types/frameworkTypes';
 
 const colorMap: Record<T_AppSeverity, string> = {
@@ -30,6 +30,7 @@ const MessageBoxView: FC<T_MessageBoxView_Props> = ({
             key={msg.time}
             gap="xsmall"
             margin={{ bottom: size === 'small' ? '' : 'small' }}
+            flex={false}
         >
             <Header pad="xsmall" background={colorMap[msg.severity]}>
                 {msg.msgTitle}
@@ -39,7 +40,7 @@ const MessageBoxView: FC<T_MessageBoxView_Props> = ({
                         role="button"
                         aria-label={`MessageBoxViewBtn_${msg.time}`}
                     >
-                        <Checkmark />
+                        <View />
                     </Box>
                 ) : (
                     <Box
@@ -47,7 +48,7 @@ const MessageBoxView: FC<T_MessageBoxView_Props> = ({
                         role="button"
                         aria-label={`MessageBoxDeleteBtn_${msg.time}`}
                     >
-                        <FormClose />
+                        <Trash />
                     </Box>
                 )}
             </Header>

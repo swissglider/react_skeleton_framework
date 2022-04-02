@@ -40,7 +40,7 @@ const MenuItem: FC<I_MenuItem_Props> = ({
         >
             {MenuPartIcon && (
                 <MenuPartIcon
-                    size={isMainMenu ? (isLandscape && isMobile ? 'medium' : 'large') : 'medium'}
+                    size={isMainMenu ? (isLandscape && isMobile ? 'medium' : 'medium') : 'medium'}
                     color={isSelected ? 'accent-1' : ''}
                 />
             )}

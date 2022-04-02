@@ -7,20 +7,9 @@ export interface I_ContentFrame_Props {
     scope: string; // for example pageName --> all Frames can be collapsed or closed togehter etc...
     id: string; // unique
     children: React.ReactNode;
-    pad?: any;
-    margin?: any;
-    flex?: boolean;
-    height?: any;
 }
 
-export const ContentFrame = ({
-    scope,
-    id,
-    children,
-    pad = 'none',
-    margin = 'none',
-    flex = false,
-}: I_ContentFrame_Props): JSX.Element => {
+export const ContentFrame = ({ scope, id, children }: I_ContentFrame_Props): JSX.Element => {
     const sfcOrgState = useState(S_SFC_State);
     const frameState = useComponentFrameState();
 
@@ -46,9 +35,6 @@ export const ContentFrame = ({
             title={frameState.getTitle(scope, id)}
             scope={scope}
             id={id}
-            pad={pad}
-            margin={margin}
-            flex={flex}
             titleIcon={frameState.getTitleIcon(scope, id)}
             isCollapsible={frameState.isCollapsible(scope, id)}
             isCollapsed={frameState.isCollapsed(scope, id)}
@@ -57,6 +43,11 @@ export const ContentFrame = ({
             isShowBody={frameState.isShowBody(scope, id)}
             toggleCollapsed={(scope: string, id: string) => frameState.toggleCollapsed(scope, id)}
             toggleClosed={(scope: string, id: string) => frameState.toggleClosed(scope, id)}
+            frameColor={frameState.getFrameColor(scope, id)}
+            headerBackgroundColor={frameState.getHeaderBackgroundColor(scope, id)}
+            contentBackgroundColor={frameState.getContentBackgroundColor(scope, id)}
+            boxProps={frameState.getBoxProps(scope, id)}
+            additionalActions={frameState.getAdditionalActions(scope, id)}
         >
             {children}
         </ContentFrameView>

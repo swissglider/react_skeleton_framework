@@ -1,15 +1,14 @@
 import React from 'react';
-import { useState } from '@hookstate/core';
-import { S_landscapeState } from '../../10-addons/states/frameworkStates';
-import { useTitleState } from '../../10-addons/states/titleStates';
+import { useAppTitle } from '../../10-addons/states/titleStates';
 import EmbeddedTitleView from '../../2-pro-atoms/EmbeddedTitleView/EmbeddedTitleView';
+import { useWindowSize } from '../../10-addons/hooks/useWindowSize';
 import MainMenu from '../Menu/Menu';
 
 const SkeletonEmbeddedTitle = (): JSX.Element => {
-    const landscapeState = useState(S_landscapeState);
-    const titleState = useTitleState();
+    const titleState = useAppTitle();
+    const { isLandscape } = useWindowSize();
     return (
-        <EmbeddedTitleView title={titleState.get()} isLandscape={landscapeState.get()}>
+        <EmbeddedTitleView title={titleState.getTitle()} isLandscape={isLandscape}>
             <MainMenu mainMenu={false} />
         </EmbeddedTitleView>
     );

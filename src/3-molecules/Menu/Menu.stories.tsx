@@ -67,7 +67,7 @@ const Template1: ComponentStory<typeof Menu> = ({ mainMenu }) => {
     const appState = useAppStructure();
     useEffect(() => {
         appState.set(appStructure);
-        selectedComponentState.set('menu1');
+        selectedComponentState.setSelectedComponent('menu1');
     }, []);
     return <Menu mainMenu={mainMenu} />;
 };
@@ -106,7 +106,7 @@ const SuroundBox = ({mainMenu}):JSX.Element => {
     const appState = useAppStructure();
     useEffect(() => {
         appState.set(appStructure);
-        selectedComponentState.set('menu1');
+        selectedComponentState.setSelectedComponent('menu1');
     }, []);
     return <Menu mainMenu={mainMenu} />;
 }

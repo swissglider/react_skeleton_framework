@@ -23,7 +23,7 @@ const sendTo = async (
         // handle result
     } catch (e) {
         if (e === timeoutError) {
-            console.log('timeoutError2');
+            console.error('timeoutError2');
             return {
                 error: {
                     errorType: 'timeout',

@@ -2,6 +2,7 @@ import React from 'react';
 import { Footer } from 'grommet';
 import { T_AppStructure } from '../../10-addons/types/frameworkTypes';
 import MenuItem from '../../1-atoms/MenuItem/MenuItem';
+import { MoreMenuStruct } from '../../6-components/MoreMenuComponent/MoreMenuComponent';
 
 export interface I_MenuView_Props {
     mainMenu?: boolean;
@@ -51,6 +52,19 @@ const MenuView = ({
                         isSelected={appComonentValue.menuName === selectedMenuName}
                     />
                 ))}
+            {Object.values(appStructure).some((e) => e.moreMenu !== undefined && e.moreMenu === true) && (
+                <MenuItem
+                    key={MoreMenuStruct.menuName}
+                    menuPartName={MoreMenuStruct.menuName}
+                    menuPartClicked={() => menuPartClicked('MoreMenu')}
+                    MenuPartIcon={MoreMenuStruct.menuIcon}
+                    isMobile={isMobile}
+                    isLandscape={isLandscape}
+                    isMainMenu={mainMenu}
+                    size={size}
+                    isSelected={MoreMenuStruct.menuName === selectedMenuName}
+                />
+            )}
         </Footer>
     );
 };

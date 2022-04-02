@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import EmbeddedTitle from './EmbeddedTitle';
-import { useState } from '@hookstate/core';
-import { S_isMobileState, S_landscapeState } from '../../10-addons/states/frameworkStates';
-import { useTitleState } from '../../10-addons/states/titleStates';
+import { useAppTitle } from '../../10-addons/states/titleStates';
 import { Menu as MenuIcon, Action, CirclePlay, Trophy, Run } from 'grommet-icons';
 import { T_AppStructure } from '../../10-addons/types/frameworkTypes';
 import { useAppStructure, useSelectedComponent } from '../../10-addons/states/appStructureStates';
+import { useSizeState } from '../../10-addons/states/windowStates';
 
 const appStructure: T_AppStructure = {
     menu1: {
@@ -83,15 +82,12 @@ export default {
             source: {
                 code: `
 import { useState } from '@hookstate/core';
-import { S_landscapeState } from '../../10-addons/states/frameworkStates';
-import { useTitleState } from '../../10-addons/states/titleStates';
+import { useAppTitle } from '../../10-addons/states/titleStates';
 
 const Comp = () => {
-    const landscapeState = useState(S_landscapeState);
-    const titleState = useTitleState();
+    const titleState = useAppTitle();
     useEffect(() => {
-        landscapeState.set(false);
-        titleState.set("I'm a Portrait embedded Title");
+        titleState.setTitle("I'm a Portrait embedded Title");
     }, []);
     return <SkeletonEmbeddedTitle />;
 };
@@ -101,27 +97,20 @@ const Comp = () => {
     },
 } as ComponentMeta<typeof EmbeddedTitle>;
 
-const Template: ComponentStory<any> = ({ title, isLandscape, isMobile, size }) => {
+const Template: ComponentStory<any> = ({ title, size }) => {
     const selectedComponentState = useSelectedComponent();
     const appState = useAppStructure();
-    const landscapeState = useState(S_landscapeState);
-    const titleState = useTitleState();
-    const isMobileState = useState(S_isMobileState);
+    const titleState = useAppTitle();
+    const sizeState = useSizeState();
     useEffect(() => {
         appState.set(appStructure);
-        selectedComponentState.set('menu1');
+        selectedComponentState.setSelectedComponent('menu1');
     }, []);
     useEffect(() => {
-        titleState.set(title);
+        titleState.setTitle(title);
     }, [title]);
     useEffect(() => {
-        landscapeState.set(isLandscape);
-    }, [isLandscape]);
-    useEffect(() => {
-        isMobileState.set(isMobile);
-    }, [isMobile]);
-    useEffect(() => {
-        isMobileState.set(size);
+        sizeState.set(size);
     }, [size]);
     return <EmbeddedTitle />;
 };

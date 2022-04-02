@@ -1,5 +1,9 @@
 import { createState, useState } from '@hookstate/core';
+import { BoxExtendedProps } from 'grommet';
 import { Icon } from 'grommet-icons';
+import { BackgroundType, ColorType } from 'grommet/utils';
+import { FC } from 'react';
+import { T_AppAdditionalActions } from '../../10-addons/types/frameworkTypes';
 
 // SFSC = SkeletonFrameStructConfigurations
 // SFSC = SkeletonFrameStruct
@@ -14,6 +18,11 @@ const SFSC: string[] = [
     'closed',
     'showBody',
     'titleIcon',
+    'frameColor',
+    'headerBackgroundColor',
+    'contentBackgroundColor',
+    'boxProps',
+    'additionalActions',
 ];
 
 type T_SFCS = typeof SFSC[number];
@@ -72,5 +81,41 @@ const wrapS_SFC_State = (state: T_SFC_Scopes) => ({
         state[scope].keys?.forEach((e: string) => state[scope][e].closed.set(closed)),
     setScopeShowBody: (scope: string, showBody: boolean) =>
         state[scope].keys?.forEach((e: string) => state[scope][e].showBody.set(showBody)),
+
+    getFrameColor: (scope: string, id: string): ColorType => state[scope][id]?.value?.frameColor ?? 'brand',
+    setFrameColor: (scope: string, id: string, color: ColorType) =>
+        state.keys.includes(scope) && state[scope].keys.includes(id) && state[scope][id].frameColor.set(color),
+    setScopeFrameColor: (scope: string, color: ColorType) =>
+        state[scope].keys?.forEach((e: string) => state[scope][e].frameColor.set(color)),
+
+    getHeaderBackgroundColor: (scope: string, id: string): BackgroundType =>
+        state[scope][id]?.value?.headerBackgroundColor ?? undefined,
+    setHeaderBackgroundColor: (scope: string, id: string, color: BackgroundType) =>
+        state.keys.includes(scope) &&
+        state[scope].keys.includes(id) &&
+        state[scope][id].headerBackgroundColor.set(color),
+    setScopeHeaderBackgroundColor: (scope: string, color: BackgroundType) =>
+        state[scope].keys?.forEach((e: string) => state[scope][e].headerBackgroundColor.set(color)),
+
+    getContentBackgroundColor: (scope: string, id: string): BackgroundType =>
+        state[scope][id]?.value?.contentBackgroundColor ?? undefined,
+    setContentBackgroundColor: (scope: string, id: string, color: BackgroundType) =>
+        state.keys.includes(scope) &&
+        state[scope].keys.includes(id) &&
+        state[scope][id].contentBackgroundColor.set(color),
+    setScopeContentBackgroundColor: (scope: string, color: BackgroundType) =>
+        state[scope].keys?.forEach((e: string) => state[scope][e].contentBackgroundColor.set(color)),
+
+    getBoxProps: (scope: string, id: string): BoxExtendedProps =>
+        state[scope][id]?.value?.boxProps ?? ({} as BoxExtendedProps),
+    setBoxProps: (scope: string, id: string, boxProps: BoxExtendedProps) =>
+        state.keys.includes(scope) && state[scope].keys.includes(id) && state[scope][id].boxProps.set(boxProps),
+    setScopeBoxProps: (scope: string, boxProps: BoxExtendedProps) =>
+        state[scope].keys?.forEach((e: string) => state[scope][e].boxProps.set(boxProps)),
+
+    setAdditionalActions: (scope: string, id: string, additionalActions: T_AppAdditionalActions) =>
+        state[scope][id].additionalActions.set(additionalActions),
+    getAdditionalActions: (scope: string, id: string): T_AppAdditionalActions =>
+        state[scope][id]?.value?.additionalActions ?? [],
 });
 export const useComponentFrameState = () => wrapS_SFC_State(useState(S_SFC_State));

@@ -1,3 +1,5 @@
+import { Icon } from 'grommet-icons';
+
 const appType: string[] = ['prod', 'test'];
 export type T_AppType = typeof appType[number];
 
@@ -33,3 +35,5 @@ export type T_AppMessage = {
     msgError?: Error;
     popUpOnSkeleton?: boolean;
 };
+
+export type T_AppAdditionalActions = { Icon: Icon; onClick: () => void }[];

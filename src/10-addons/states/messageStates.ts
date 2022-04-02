@@ -85,13 +85,23 @@ const wrapS_appAppMessage = (state: State<T_AppMessage[]>) => ({
             state[index].set(newValue);
         }
     },
-    isMsgNew: (msgTime: number) => state.value.find((e) => e.time === msgTime),
-    getLast: () => state[state.length - 1].get(),
+    isMsgNew: (msgTime: number) => state.value.find((e) => e.time === msgTime)?.new ?? false,
+    getLastNew: () => state.value.filter((e) => e.new === true)[state.length - 1],
     getNewCount: () => state.value.filter((e) => e.new === true).length,
+    getCount: () => state.value.length,
     getReadedCount: () => state.value.filter((e) => e.new === false).length,
     deleteMsg: (time: number) => {
         state[state.value.findIndex((e) => e.time === time)].set(none);
     },
     deleteAll: () => state.set([]),
+    deleteAllReaded: () => {
+        const toBeMerged: Record<number, any> = {};
+        state.value.forEach((e, index) => {
+            if (e.new === false) toBeMerged[index] = none;
+        });
+        state.merge(toBeMerged);
+    },
+    setAllReaded: () => state.value.forEach((e, index) => state[index].set({ ...e, ...{ new: false } })),
+    isMessageAvailable: (msgTime: number): boolean => state.value.some((e) => e.time === msgTime),
 });
 export const useMessages = () => wrapS_appAppMessage(useState(S_appMessages));
