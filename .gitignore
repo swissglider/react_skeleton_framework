@@ -2,3 +2,5 @@ dist
 node_modules
 src--
 src-
+liveStorybook/node_modules
+liveStorybook/storybook-static

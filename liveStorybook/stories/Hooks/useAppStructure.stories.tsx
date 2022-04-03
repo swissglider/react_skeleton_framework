@@ -1,10 +1,10 @@
 import React, { FC, useEffect } from 'react';
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import { Skeleton, Test } from '../..';
+import { Skeleton, Test } from '@swissglider/react_skeleton_framework';
 import { Home, NewWindow, ChapterAdd, Network } from 'grommet-icons';
 
 export default {
-    title: 'External/Doc/Skeleton/Hooks/useAppStructure',
+    title: 'Doc/Skeleton/Hooks/useAppStructure',
     component: Skeleton,
     argTypes: {},
     args: {},
@@ -247,7 +247,7 @@ const EmbeddedMenuTemplate: any = () => {
             menuIcon: Network,
             isEmbedded: true,
             embeddedLink:
-                '/iframe.html?id=external-app-skeleton--standard&globals=backgrounds.grid:false&viewMode=story',
+                '/react_skeleton_framework/iframe.html?id=doc-app-skeleton--standard&globals=backgrounds.grid:false&viewMode=story',
         },
         Page1: {
             menuName: 'Page1',

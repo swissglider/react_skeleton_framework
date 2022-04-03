@@ -1,11 +1,11 @@
 import React, { FC, useEffect } from 'react';
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import { Skeleton, Test } from '../..';
+import { Skeleton, Test } from '@swissglider/react_skeleton_framework';
 import { Home, System } from 'grommet-icons';
 import { Box, Button, CheckBox, Table, TableBody, TableCell, TableRow, Text } from 'grommet';
 
 export default {
-    title: 'External/Doc/Skeleton/Parts/ContentFrame',
+    title: 'Doc/Skeleton/Parts/ContentFrame',
     component: Skeleton,
     argTypes: {},
     args: {},

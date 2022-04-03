@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import { Test } from '../../Test';
-import { Skeleton } from '../..';
+
+import { Skeleton, Test } from '../..';
 
 export default {
     title: 'External/Doc/Skeleton/Hooks/useAppType',

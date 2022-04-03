@@ -1,9 +1,9 @@
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { useEffect } from 'react';
-import { Skeleton, Test } from '../..';
+import { Skeleton, Test } from '@swissglider/react_skeleton_framework';
 
 export default {
-    title: 'External/Doc/Skeleton/Parts/MessageBox',
+    title: 'Doc/Skeleton/Parts/MessageBox',
     component: Skeleton,
     argTypes: {},
     args: {},

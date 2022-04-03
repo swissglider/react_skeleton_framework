@@ -43,19 +43,6 @@ const TestMenuComponent: FC<any> = () => {
         asState.deleteMenu('New');
     };
 
-    const setIFrameTest = () => {
-        asState.addNewMenu('iFrameTest', {
-            menuName: 'iFrameTest',
-            default: false,
-            moreMenu: false,
-            mainMenu: false,
-            isEmbedded: true,
-            embeddedLink:
-                '/iframe.html?appVariant=embedded&id=external-app-skeleton--standard&globals=backgrounds.grid:false&viewMode=story',
-        });
-        selectedCompState.setSelectedComponent('iFrameTest');
-    };
-
     return (
         <Box gap="small">
             <ContentFrame id={id1} scope={scope}>
@@ -103,14 +90,6 @@ const TestMenuComponent: FC<any> = () => {
                         margin={{ bottom: 'xsmall' }}
                     />
                 </Box>
-            </ContentFrame>
-            <ContentFrame id={id3} scope={scope}>
-                <Button
-                    size="small"
-                    label="Open IFrame Comp"
-                    onClick={() => setIFrameTest()}
-                    margin={{ bottom: 'xsmall' }}
-                />
             </ContentFrame>
         </Box>
     );

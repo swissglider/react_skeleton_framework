@@ -1,5 +1,5 @@
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import { Skeleton, Test } from '../..';
+import { Skeleton, Test } from '@swissglider/react_skeleton_framework';
 import { useState } from 'react';
 import {
     Box,
@@ -20,7 +20,7 @@ import {
 import { CaretDownFill, CaretRightFill, Trash, View, Add, FormTrash } from 'grommet-icons';
 
 export default {
-    title: 'External/Doc/Skeleton/Hooks/useMessages',
+    title: 'Doc/Skeleton/Hooks/useMessages',
     component: Skeleton,
     argTypes: {},
     args: {},

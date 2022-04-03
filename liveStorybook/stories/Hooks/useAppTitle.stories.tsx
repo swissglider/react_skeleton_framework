@@ -1,10 +1,10 @@
 import React, { FC, useEffect } from 'react';
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import { Skeleton, Test } from '../..';
+import { Skeleton, Test } from '@swissglider/react_skeleton_framework';
 import { Home } from 'grommet-icons';
 
 export default {
-    title: 'External/Doc/Skeleton/Hooks/useAppTitle',
+    title: 'Doc/Skeleton/Hooks/useAppTitle',
     component: Skeleton,
     argTypes: {},
     args: {},

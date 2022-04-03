@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppStructure, useSelectedComponent } from '../../10-addons/states/appStructureStates';
 import MenuView from '../../2-pro-atoms/MenuView/MenuView';
 import { useSizeState } from '../../10-addons/states/windowStates';
-import { isMobile } from 'react-device-detect';
 import { useWindowSize } from '../../10-addons/hooks/useWindowSize';
 
 export interface I_SkeletonMenu_Props {
@@ -14,6 +13,11 @@ const MainMenu = ({ mainMenu }: I_SkeletonMenu_Props): JSX.Element => {
     const appStructure = useAppStructure();
     const selectedComponentState = useSelectedComponent();
     const { isLandscape } = useWindowSize();
+    const [isMobile, setIsMobile] = useState<boolean>(true);
+
+    useEffect(() => {
+        setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+    }, []);
 
     return (
         <MenuView

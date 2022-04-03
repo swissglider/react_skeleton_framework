@@ -1,8 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import { Skeleton } from '../..';
+import { Skeleton, Test } from '../..';
 import { Home } from 'grommet-icons';
-import { Test } from '../../Test';
 
 export default {
     title: 'External/Doc/Skeleton/Hooks/useGrommetTheme',

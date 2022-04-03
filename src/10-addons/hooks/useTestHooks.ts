@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Skeleton } from '../..';
+import { Skeleton, Test } from '../..';
 
 export const useResetAll = (): boolean => {
     const [isReset, setIsReset] = useState(false);

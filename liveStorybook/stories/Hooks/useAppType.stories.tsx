@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import { Skeleton, Test } from '..';
+
+import { Skeleton, Test } from '@swissglider/react_skeleton_framework';
 
 export default {
-    title: 'External/App/Skeleton',
+    title: 'Doc/Skeleton/Hooks/useAppType',
     component: Skeleton,
     argTypes: {},
     args: {},
@@ -22,7 +23,7 @@ export default {
                 );
             },
             description: {
-                component: 'Simple Skeleton usage',
+                component: 'usage of hook:useAppType',
             },
         },
         layout: 'fullscreen',
@@ -33,21 +34,22 @@ const Template: any = () => {
     const isReset = Test.Hooks.useResetAll();
     const titleState = Skeleton.Hooks.useAppTitle();
     const appStructureState = Skeleton.Hooks.useAppStructure();
+    const appTypeState = Skeleton.Hooks.useAppType();
+
+    const title = 'setTitle/useAppType';
 
     const AppStructure: Skeleton.Types.T_AppStructure = {
-        MenuTest: { ...{ default: true, mainMenu: true }, ...Test.Components.TestMenuComponentStructure },
-        AppInfo: { ...{ mainMenu: true }, ...Skeleton.Components.DummyInfoStateComponentStructure },
-        Test1: Test.Components.Test1Structure,
-        Test2: Test.Components.Test2Structure,
+        AppInfo: { ...{ default: true, mainMenu: true }, ...Skeleton.Components.DummyInfoStateComponentStructure },
     };
 
     useEffect(() => {
         appStructureState.set(AppStructure);
-        titleState.setTitle('First Skeleton App');
+        titleState.setTitle(title);
+        appTypeState.setAppType('test');
     }, []);
 
     return <>{isReset ? <Skeleton.App /> : <Skeleton.Parts.SkeletonLoader />}</>;
 };
 
-export const Standard = Template.bind({});
-Standard.args = {};
+export const UseAppType = Template.bind({});
+UseAppType.args = {};

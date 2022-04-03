@@ -1,10 +1,10 @@
 import React, { FC, useEffect } from 'react';
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import { Skeleton, Test } from '../..';
+import { Skeleton, Test } from '@swissglider/react_skeleton_framework';
 import { Home } from 'grommet-icons';
 
 export default {
-    title: 'External/Doc/Skeleton/Hooks/useAppTitle',
+    title: 'Doc/Skeleton/Hooks/useGrommetTheme',
     component: Skeleton,
     argTypes: {},
     args: {},
@@ -23,43 +23,23 @@ export default {
                 );
             },
             description: {
-                component: 'usage of hook:useAppTitle',
+                component: 'usage of hook:useGrommetTheme',
             },
         },
         layout: 'fullscreen',
     },
 };
 
-const SetTitleTemplate: any = () => {
+const customThemeTemplate: any = () => {
     const isReset = Test.Hooks.useResetAll();
     const titleState = Skeleton.Hooks.useAppTitle();
     const appStructureState = Skeleton.Hooks.useAppStructure();
+    const grommetThemeState = Skeleton.Hooks.useGrommetTheme();
 
-    const title = 'setTitle/getTitle';
+    const title = 'setTitle/useGrommetTheme';
 
-    const HomePageComponent: FC<any> = () => {
-        const titleState1 = Skeleton.Hooks.useAppTitle();
-
-        const resetTitle = (): void => {
-            titleState.setTitle(title);
-        };
-
-        return (
-            <div>
-                <h3>useAppTitle</h3>
-                <p>Title: {titleState1.getTitle()}</p>
-                <hr />
-                <input
-                    type="text"
-                    id="fname"
-                    name="title"
-                    onChange={(e) => titleState.setTitle(e.target.value)}
-                    value={titleState1.getTitle()}
-                />
-                <br />
-                <button onClick={() => resetTitle()}>ResetTitle</button>
-            </div>
-        );
+    const HomePage: FC<any> = () => {
+        return <div>Custom Theme</div>;
     };
 
     const AppStructure: Skeleton.Types.T_AppStructure = {
@@ -67,17 +47,30 @@ const SetTitleTemplate: any = () => {
             menuName: 'HomePage',
             default: true,
             menuIcon: Home,
-            Component: HomePageComponent,
+            Component: HomePage,
+        },
+    };
+
+    const custTheme = {
+        global: {
+            colors: {
+                'dark-1': { dark: '#112342', light: '#ee3452' },
+                brand: {
+                    dark: '#ff3344',
+                    light: '#3f42f3',
+                },
+            },
         },
     };
 
     useEffect(() => {
         appStructureState.set(AppStructure);
         titleState.setTitle(title);
+        grommetThemeState.setGrommetTheme(custTheme);
     }, []);
 
     return <>{isReset ? <Skeleton.App /> : <Skeleton.Parts.SkeletonLoader />}</>;
 };
 
-export const useAppTitle = SetTitleTemplate.bind({});
-useAppTitle.args = {};
+export const customTheme = customThemeTemplate.bind({});
+customTheme.args = {};

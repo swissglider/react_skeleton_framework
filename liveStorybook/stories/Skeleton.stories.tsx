@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import { Skeleton, Test } from '..';
+import { Skeleton, Test } from '@swissglider/react_skeleton_framework';
 
 export default {
-    title: 'External/App/Skeleton',
+    title: 'Doc/App/Skeleton',
     component: Skeleton,
     argTypes: {},
     args: {},

@@ -3,6 +3,7 @@
 // Apps
 // ************************************************************************************************************
 import { Skeleton as Skeleton_ } from './5-pages/Skeleton/Skeleton';
+export { Test } from './Test';
 
 // ************************************************************************************************************
 // Components
@@ -43,6 +44,11 @@ import { MessageBox as MessageBox_ } from './3-molecules/SkeletonMessageBox/Skel
 import { ContentFrame as ContentFrame_ } from './3-molecules/ContentFrameComponent/ContentFrame';
 
 // ************************************************************************************************************
+// Helpers
+// ************************************************************************************************************
+import * as getRandomString_ from './10-addons/helper/getRandomKey';
+
+// ************************************************************************************************************
 // final namespace
 // ************************************************************************************************************
 export namespace Skeleton {
@@ -72,5 +78,8 @@ export namespace Skeleton {
         export const ContentFrame = ContentFrame_;
         export const SkeletonLoader = SkeletonLoader_;
         export const MessageBox = MessageBox_;
+    }
+    export namespace Helpers {
+        export const getRandomString = getRandomString_.default;
     }
 }

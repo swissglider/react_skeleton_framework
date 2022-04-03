@@ -1,10 +1,10 @@
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import { Skeleton, Test } from '../..';
+import { Skeleton, Test } from '@swissglider/react_skeleton_framework';
 import { linkTo } from '@storybook/addon-links';
 import { Button } from 'grommet';
 
 export default {
-    title: 'External/Doc/Skeleton/Hooks/useComponentFrameState',
+    title: 'Doc/Skeleton/Hooks/useComponentFrameState',
     component: Skeleton,
     argTypes: {},
     args: {},
@@ -33,7 +33,7 @@ export default {
 const SetTitleTemplate: any = () => {
     return (
         <div>
-            <Button onClick={linkTo('External/Doc/Skeleton/Parts/ContentFrame')} plain>
+            <Button onClick={linkTo('Doc/Skeleton/Parts/ContentFrame')} plain>
                 <h3>GoTo Parts ContentFrame to see how to use</h3>
             </Button>
         </div>
