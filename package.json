@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/swisglider"
   },
-  "version": "0.0.37",
+  "version": "0.0.38",
   "description": "This is the Swissglider React Skeleton Framework",
   "scripts": {
     "rollup": "rollup -c",
