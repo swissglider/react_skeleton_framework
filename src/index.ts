@@ -23,6 +23,7 @@ import { useAppTitle as useAppTitle_ } from './10-addons/states/titleStates';
 import { useAppType as useAppType_ } from './10-addons/states/frameworkStates';
 import { useComponentFrameState as useComponentFrameState_ } from './3-molecules/ContentFrameComponent/componentStates';
 import { useGrommetTheme as useGrommetTheme_ } from './10-addons/states/grommetThemeState';
+import { useWindowSize as useWindowSize_ } from './10-addons/hooks/useWindowSize';
 
 // ************************************************************************************************************
 // Types
@@ -65,6 +66,7 @@ export namespace Skeleton {
         export const useGrommetTheme = useGrommetTheme_;
         export const useMessages = useMessages_;
         export const useComponentFrameState = useComponentFrameState_;
+        export const useWindowSize = useWindowSize_;
     }
     export namespace Types {
         export type T_Size = T_Size_;
